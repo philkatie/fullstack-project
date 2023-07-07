@@ -1,9 +1,12 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container';
 
 export default function Footer() {
   return (
-    <div>
-      <h1>Footer</h1>
-    </div>
+    <footer className='py-3 bg-dark fixed-bottom'>
+        <Container className='px-4 text-center text-white'>
+            Copyright &copy; Phantom Finders 2023
+        </Container>
+    </footer>
   )
 }
