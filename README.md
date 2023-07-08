@@ -11,4 +11,12 @@ Loaded the local servers to make sure they ran, success, did a quick Hello World
 ## Whiteboarding/Wireframing
 
 Oh god I'm going to be annoying and make a Trello board aren't I
+Update yeah I did
 
+## Basic Frontend Stuff
+
+Installed Bootstrap and got a super basic frontend with header, footer, form going so my brain would quiet down.
+
+## Basic Backend Stuff
+
+It's been a minute since I've done a Django project so I spent a little time in the afternoon refreshing my memory, then started getting some of the basic info for the model and REST framework set up. Then I started thinking of a dozen different things I could do with the theming to make it sillier and more consistent so I had to remind myself that it has to actually work first and then I can make it as goofy as I want.

@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from .models import Form
 from rest_framework import serializers
 
 
@@ -12,3 +13,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
         fields = ["url", "name"]
+
+
+class FormSerializer(serializers.HyperlinkedModelSerializer):
+    # add validation
+    class Meta:
+        model = Form
+        fields = "__all__"
