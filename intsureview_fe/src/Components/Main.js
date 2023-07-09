@@ -86,6 +86,7 @@ export default function Main() {
         url: 'http://localhost:8000/api/',
         data: formField
       }).then((response) => {
+        console.log(response.status);
         console.log(response.data);
         navigate('/');
       })

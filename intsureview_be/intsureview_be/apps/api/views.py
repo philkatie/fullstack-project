@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework import status
+from rest_framework.response import Response
 from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, InfoSerializer
 from .models import Info
 
@@ -27,3 +29,11 @@ class GroupViewSet(viewsets.ModelViewSet):
 class InfoViewSet(viewsets.ModelViewSet):
     queryset = Info.objects.all()
     serializer_class = InfoSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
