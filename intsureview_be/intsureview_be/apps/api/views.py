@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
-from .models import Form
+from .models import ParanormalActivity
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.views import APIView
-from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, FormSerializer
+from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, ParanormalActivitySerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -27,27 +27,11 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class FormViewSet(viewsets.ModelViewSet):
+class ParanormalActivityViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
 
-    queryset = Form.objects.all()
-    serializer_class = FormSerializer
+    queryset = ParanormalActivity.objects.all()
+    serializer_class = ParanormalActivitySerializer
     permission_classes = [permissions.IsAuthenticated]
-
-def index(response, id):
-    fr = Form.objects.get(id=id)
-    return HttpResponse("<h1>%s</h1>" %fr.name)
-
-
-class FormAPIView(APIView):
-    http_method_names = ['post']
-
-    def post(self, request):
-        # Create a form entry
-        serializer = FormSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

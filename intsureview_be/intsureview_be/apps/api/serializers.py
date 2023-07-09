@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from .models import Form
+from .models import ParanormalActivity
 from rest_framework import serializers
 
 
@@ -15,8 +15,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ["url", "name"]
 
 
-class FormSerializer(serializers.HyperlinkedModelSerializer):
+class ParanormalActivitySerializer(serializers.HyperlinkedModelSerializer):
     # add validation
     class Meta:
-        model = Form
+        model = ParanormalActivity
         fields = "__all__"

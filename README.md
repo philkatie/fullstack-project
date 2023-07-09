@@ -24,3 +24,7 @@ It's been a minute since I've done a Django project so I spent a little time in 
 ## Update
 
 Fought with corsheaders for an unreasonable amount of time, figured out it was one of my chrome extensions making it angry. Started fighting with Axios, decided to put it off for a bit. Helped a friend move, I am So Tired And My Body Hurts. Gonna make the form actually work now and then I'll fight with Axios some more.
+
+## Update Again
+
+Okay we're back. I made a new branch and started the backend again with, like, Less Stuff, and it worked completely fine the way I thought it should. So now I'm gonna go back through this branch and find the Problem Child, Fix It, and make everything pretty hooray
