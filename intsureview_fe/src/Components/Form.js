@@ -11,7 +11,10 @@ import Form from 'react-bootstrap/Form';
 export default function Main() {
 
   const [name, setName] = useState("");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
+  const [investigationRequested, setInvestigationRequested] = useState(true);
 
   // feels like there is probably a way to standardize this function to be reusable
   // not going to worry about it now but copying it five times is not, generally, The Move
@@ -19,15 +22,30 @@ export default function Main() {
     setName(e.target.value);
   }
 
+  const handleStreetAddress = (e) => {
+    setStreetAddress(e.target.value);
+  }
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  }
+
   const handleDescription = (e) => {
     setDescription(e.target.value);
+  }
+
+  const handleInvestigationRequested = (e) => {
+    setInvestigationRequested(e.target.value);
   }
 
   const handleSubmit = async () => {
     let formField = new FormData();
 
     formField.append('name', name);
+    formField.append('street_address', streetAddress);
+    formField.append('email', email);
     formField.append('description', description)
+    formField.append('investigation_requested', investigationRequested);
 
     await axios({
       method: 'post',
@@ -67,12 +85,50 @@ export default function Main() {
 
           <Form.Group 
             className="mb-3" 
+            controlId="formBasicAddress"
+            value={streetAddress}
+            onChange={handleStreetAddress}>
+            <Form.Label>Street Address</Form.Label>
+            <Form.Control 
+              required
+              type="address" 
+              placeholder="Street Address" 
+            />
+          </Form.Group>
+
+          <Form.Group 
+            className="mb-3" 
+            controlId="formBasicEmail"
+            value={email}
+            onChange={handleEmail}>
+            <Form.Label>Email</Form.Label>
+            <Form.Control 
+              required
+              type="email" 
+              placeholder="Email" 
+            />
+          </Form.Group>
+
+          <Form.Group 
+            className="mb-3" 
             controlId="formBasicText"
             value={description}
             onChange={handleDescription}>
             <Form.Label>Describe any previous paranormal activity at this location:</Form.Label>
             <Form.Control as="textarea" placeholder="Type here" />
           </Form.Group> 
+
+          <Form.Group 
+            className="mb-3" 
+            controlId="formBasicSelect"
+            value={investigationRequested}
+            onChange={handleInvestigationRequested}>
+            <Form.Label>Would you like Phantom Finders to investigate your location?</Form.Label>
+            <Form.Select>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </Form.Select>
+          </Form.Group>
 
           <Button 
             variant="primary" 
