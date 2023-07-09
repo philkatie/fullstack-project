@@ -11,8 +11,13 @@ export default function List() {
     const [info, setInfo] = useState([]);
 
     const getInfo = async () => {
+      try {
         const response = await axios.get('http://localhost:8000/api/')
+        console.log(response.data.results)
         setInfo(response.data.results);
+      } catch (error) {
+        console.error('Error retrieving info:', error);
+      }
     }
 
     useEffect(() => {

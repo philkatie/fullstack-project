@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form';
+import {useNavigate} from 'react-router-dom';
 import styles from './main.css';
 
 // probably in a more robust app I would make the form its own component and make "main" a more flexible 
@@ -16,12 +17,16 @@ export default function Main() {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [investigationRequested, setInvestigationRequested] = useState(true);
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const navigate = useNavigate();
 
   // feels like there is probably a way to standardize this function to be reusable
   // not going to worry about it now but copying it five times is not, generally, The Move
   const handleName = (e) => {
     setName(e.target.value);
-  }
+    setNameError('');
+  };
 
   const handleStreetAddress = (e) => {
     setStreetAddress(e.target.value);
@@ -29,7 +34,8 @@ export default function Main() {
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-  }
+    setEmailError('');
+  };
 
   const handleDescription = (e) => {
     setDescription(e.target.value);
@@ -39,22 +45,51 @@ export default function Main() {
     setInvestigationRequested(e.target.value);
   }
 
-  const handleSubmit = async () => {
-    let formField = new FormData();
+  const validateForm = () => {
+    let isValid = true;
 
-    formField.append('name', name);
-    formField.append('street_address', streetAddress);
-    formField.append('email', email);
-    formField.append('description', description)
-    formField.append('investigation_requested', investigationRequested);
+    if (!name.trim()) {
+      setNameError('Please enter your name.');
+      isValid = false;
+    }
 
-    await axios({
-      method: 'post',
-      url: 'http://localhost:8000/api/',
-      data: formField
-    }).then((response) => {
-      console.log(response.data);
-    })
+    if (!email.trim()) {
+      setEmailError('Please enter your email address.');
+      isValid = false;
+    } else if (!isValidEmail(email)) {
+      setEmailError('Please enter a valid email address.');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  const isValidEmail = (email) => {
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      let formField = new FormData();
+      formField.append('name', name);
+      formField.append('street_address', streetAddress);
+      formField.append('email', email);
+      formField.append('description', description);
+      formField.append('investigation_requested', investigationRequested);
+
+      await axios({
+        method: 'post',
+        url: 'http://localhost:8000/api/',
+        data: formField
+      }).then((response) => {
+        console.log(response.data);
+        navigate('/');
+      })
+    }
   };
 
   return (
@@ -70,18 +105,31 @@ export default function Main() {
           mischievous apparitions and make your home a sanctuary once more!</p>
       </Row>
       <Row className='px-4 my-3'>
-        <Form>
-          <Form.Group 
-            className="mb-3" 
-            controlId="formBasicName"
-            value={name}
-            onChange={handleName}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
-            <Form.Control 
+            <Form.Control
               required
-              type="name" 
-              placeholder="Name" 
+              type="name"
+              placeholder="Name"
+              value={name}
+              onChange={handleName}
+              isInvalid={!!nameError}
             />
+            <Form.Control.Feedback type="invalid">{nameError}</Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              required
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmail}
+              isInvalid={!!emailError}
+            />
+            <Form.Control.Feedback type="invalid">{emailError}</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group 
@@ -97,18 +145,6 @@ export default function Main() {
             />
           </Form.Group>
 
-          <Form.Group 
-            className="mb-3" 
-            controlId="formBasicEmail"
-            value={email}
-            onChange={handleEmail}>
-            <Form.Label>Email</Form.Label>
-            <Form.Control 
-              required
-              type="email" 
-              placeholder="Email" 
-            />
-          </Form.Group>
 
           <Form.Group 
             className="mb-3" 
@@ -131,11 +167,7 @@ export default function Main() {
             </Form.Select>
           </Form.Group>
 
-          <Button
-            type='submit'
-            onClick={handleSubmit}
-            className='submit-button'
-          >
+          <Button type="submit" className="submit-button">
             Submit
           </Button>
         </Form>

@@ -17,3 +17,7 @@ class InfoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Info
         fields = "__all__"
+
+    # considered adding additional validation here but it feels like
+    # a hat on a hat on a hat since I have it on the FE and the Bootstrap
+    # Forms include validation.

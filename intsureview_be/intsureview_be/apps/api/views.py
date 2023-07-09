@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer
-
+from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, InfoSerializer
+from .models import Info
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -22,10 +22,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
-from django.shortcuts import render
-from .models import Info
-from .serializers import InfoSerializer
-from rest_framework import viewsets
+
 
 class InfoViewSet(viewsets.ModelViewSet):
     queryset = Info.objects.all()
