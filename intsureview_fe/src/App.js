@@ -1,5 +1,5 @@
 import Header from './Components/Header';
-import Form from './Components/Form';
+import Main from './Components/Main';
 import Footer from './Components/Footer';
 import List from './Components/List';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<List />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/form" element={<Main />} />
         </Routes>
         <Footer />
       </Router>

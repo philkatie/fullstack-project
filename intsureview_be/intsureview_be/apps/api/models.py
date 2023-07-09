@@ -5,7 +5,7 @@ class Info(models.Model):
     street_address = models.CharField(max_length=250, default="address")
     email = models.CharField(max_length=150, default="email")
     description = models.TextField()
-    investigation_requested = models.BooleanField(default=False)
+    investigation_requested = models.BooleanField(default=True)
 
 
     def __str__(self):

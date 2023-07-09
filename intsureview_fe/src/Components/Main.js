@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import styles from './main.css';
 
 // probably in a more robust app I would make the form its own component and make "main" a more flexible 
 // component that could easily contain other content. But for this project I'm gonna leave it as is.
@@ -57,11 +58,11 @@ export default function Main() {
   };
 
   return (
-    <Container className='my-5 py-4'>
+    <Container className='my-5 py-4 my-form'>
       <Row className='px-4 my-4'>
         <h1>Phantom Finders</h1>
       </Row>
-      <Row className='px-4 my-3'>
+      <Row className='px-4 my-3 copy'>
         <p>Are unexplained bumps in the night giving you goosebumps? Do you sense an eerie presence lingering in your home? Fear not, 
           for Phantom Finders is here to save the day! With our unwavering passion for the paranormal, we are the go-to professionals 
           to uncover the truth behind mysterious happenings.</p>
@@ -119,12 +120,12 @@ export default function Main() {
           </Form.Group> 
 
           <Form.Group 
-            className="mb-3" 
+            className="mb-3 custom-select" 
             controlId="formBasicSelect"
             value={investigationRequested}
             onChange={handleInvestigationRequested}>
             <Form.Label>Would you like Phantom Finders to investigate your location?</Form.Label>
-            <Form.Select>
+            <Form.Select className="form-control">
               <option value="true">Yes</option>
               <option value="false">No</option>
             </Form.Select>

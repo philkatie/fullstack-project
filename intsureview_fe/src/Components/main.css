@@ -1,0 +1,22 @@
+ .form-control {
+    box-shadow: 0 0 8px #00ff00;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00ff00, 0 0 8px #00ff00 inset;
+}
+
+.my-form {
+    width: 80%;
+    max-width: 400px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto; 
+}
+
+.copy {
+    width: 90%;
+}

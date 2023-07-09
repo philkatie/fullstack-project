@@ -1,0 +1,29 @@
+.custom-navbar {
+    background-color: #222222;
+  }
+  
+  .custom-brand {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #00ff00;
+  }
+  
+  .custom-nav-link {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #00ff00;
+  }
+  
+  .custom-nav-link:hover {
+    color: #ff00ff;
+  }
+  
+  .custom-nav-link.active {
+    color: #00ff00 !important;
+  }
+
+  .ghost-icon {
+    color: #ffffff;
+    font-size: 24px;
+    margin-right: 8px;
+  }
