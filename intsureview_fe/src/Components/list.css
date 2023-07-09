@@ -12,5 +12,5 @@
 }
 
 .card {
-    box-shadow: 0 8px 12px rgba(0, 255, 0, 0.6);
+    box-shadow: 0 8px 12px rgba(0, 255, 0, 0.6), 0 -4px 12px rgba(255, 0, 255, 0.6);
 }
