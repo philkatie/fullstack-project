@@ -28,3 +28,7 @@ Fought with corsheaders for an unreasonable amount of time, figured out it was o
 ## Update Again
 
 Okay we're back. I made a new branch and started the backend again with, like, Less Stuff, and it worked completely fine the way I thought it should. So now I'm gonna go back through this branch and find the Problem Child, Fix It, and make everything pretty hooray
+
+## Axios Booo
+
+For some reason I can get Axios to work on my other branch but not this one ? I can't figure out what I've done differently but I keep getting a request failed status code over here. So I'm going to move everything over to that branch, I guess?
