@@ -1,42 +1,37 @@
-# The Process
+# About Phantom Finders
 
-Right now I'm going to take notes of the process as I go to sort of document my workflow. Not sure if I'll leave this in or even let it get committed, but it seems better to be more thorough than less! If you are somehow reading this please know that I am not usually quite THIS thorough with documentation but I'm really excited about Sure and this interview so I need a method to streamline my thoughts. Also omg just noticed the folders are an "interview/sure" portmanteau pun, incredible.
+Welcome to my very simple React/Django Application! On the front end, you can fill out a form detailing your experience with paranormal activity in your home, and see the responses of others who have submitted the form! The front end is mobile-responsive with the help of Bootstrap for styling. The backend API allows GET and POST calls. Please enjoy the following screenshots!
 
-## Dependency Installation
+# Notes
+I'll go into it more below when I detail my fight with Axios, but I ended up creating 3 branches. This one, "develop", is the final one, which works. My orignal branch was "working-branch", which I ran into an issue with. I created "trying-again" intending to eventually delete it once I'd figure out an issue I was having so that no one would know I made such a silly branch name, but fate intervened and it was the branch that ended up working. I tried to hide my shame and rename it "develop" but it turns out all that actually did was create an entirely new branch. C'est la vie. You are welcome to go back through the commits on "working-branch" and "trying-again" if you'd like to watch me slowly losing my mind while fighting with Axios.
 
-Installed Django, fought with MacOS/Path/pyenv to upgrade Python from 3.9 to 3.10 (big shoutout to StackOverflow), installed Poetry, ran poetry install.
-Ran npm install.
-Loaded the local servers to make sure they ran, success, did a quick Hello World edit on the front end for proof of life.
+# Challenges
 
-## Whiteboarding/Wireframing
+## Getting Started
+I used to work in React (well, React-Native) every day at work, but it's been over a year since I've done a project in Python/Django. It came back to me fairly quickly, and I really love Python, but it absolutely took me a minute to get going on the back end, including but not limited to fighting with the Python version on my computer.
 
-Oh god I'm going to be annoying and make a Trello board aren't I
-Update yeah I did
+## Axios Hates Me
+Above, I detailed a little of the Branch Saga due to my Axios issue. 
 
-## Basic Frontend Stuff
+Specifically, when I was trying to connect the front end and the back end and installing corsheaders and axios, I was getting consistent permissions issues. Based on my research on StackOverflow and YouTube, I couldn't figure out what I had done wrong.
 
-Installed Bootstrap and got a super basic frontend with header, footer, form going so my brain would quiet down.
+So, I branched a new branch "trying-again" from main, and redid most of what I had already done, but with a much simpler model (just name and description) so that I would be able to try and get it working more quickly. It worked! So I returned to working-branch and tried to start over on the back end, recreating everything I had just done, step by step, but with all the model fields. It did not work!
 
-## Basic Backend Stuff
+So, instead I transferred the good stuff from working-branch to trying-again, which continued to work, probably just to spite me. At some point I decided that trying-again was a bad branch name and renamed it to "develop", and the rest was history.
 
-It's been a minute since I've done a Django project so I spent a little time in the afternoon refreshing my memory, then started getting some of the basic info for the model and REST framework set up. Then I started thinking of a dozen different things I could do with the theming to make it sillier and more consistent so I had to remind myself that it has to actually work first and then I can make it as goofy as I want.
+I think, most likely, the whole thing was ultimately an environment issue - early on in development I was switching between pip and pipenv due to my Python versioning issue, and I think I must have installed some things via pip and some things via pipenv and they didn't play nice together? Not totally sure, because I did try uninstalling and reinstalling everything in the original working-branch and no dice. Maybe there was a typo (although don't think I didn't try Straight Up Copy-Pasting Stuff). Anyway. This was by far the hardest problem to fix, and I ended up fixing it by just Doing Everything Again, But It Worked This Time. Sometimes that's life.
 
-## Update
+## CSS Persistance
+I have no idea if this was because of Bootstrap trying to override what I was doing, or just because of my environment. It wasn't as bad on the last day of the project but it was a pain when I was first trying to style. I hard-reloaded my browser, axed and restarted the localhost server, and commented out and back in the style import in the individual components. Ultimately that last one was the most helpful. I'm gonna blame this one on Google Chrome for now but if I were to continue this project it would need further investigation.
 
-Fought with corsheaders for an unreasonable amount of time, figured out it was one of my chrome extensions making it angry. Started fighting with Axios, decided to put it off for a bit. Helped a friend move, I am So Tired And My Body Hurts. Gonna make the form actually work now and then I'll fight with Axios some more.
+## Pagination Issue
+Had an issue where I was only receiving 10 objects back for the List.js view, turns out it was a pagination thing. I changed the pagination limit to 50 items in settings.py, but would probably look into a better/more robust solution in the long term. The main issue was that to map the info, I needed just response.data.results, because Django was returning info at the top of the response body indicating how many results they were - I believe this was also a pagination issue. There are likely better ways to fix this.
 
-## Update Again
+# Icebox
+The next thing I would do is add a Detail view for each Haunting in advance of adding PUT and DELETE endpoints to allow editing and deletion of entries.
 
-Okay we're back. I made a new branch and started the backend again with, like, Less Stuff, and it worked completely fine the way I thought it should. So now I'm gonna go back through this branch and find the Problem Child, Fix It, and make everything pretty hooray
+After that, I'd probably work on the mobile responsiveness. It is mobile responsive, but it's kind of messy, and I'd love for it to be sleeker and more robust.
 
-## Axios Booo
+After that, probably, error handling. I always get so excited about the silly stuff and get tempted to skip past error handling, but it should definitely be more of a priority.
 
-For some reason I can get Axios to work on my other branch but not this one ? I can't figure out what I've done differently but I keep getting a request failed status code over here. So I'm going to move everything over to that branch, I guess?
-
-## Round 2 (3?)
-
-Okay we are back with the note taking. The app works, and it looks fine ish when the css is persisting. I have a lot of tweaks I want to do tomorrow after I finish helping my friend move but I am nearing the point where I would not be embarrassed to turn this in. I want to change the model a little bit to fit the theme better or at least make the naming conventions more consistent but I simply don't think I can make any more migrations. Gonna get to put a "challenges" section on the final ReadMe I guess, so I've got that going for me which is ???
-
-# Hello again
-
-Helped my friend with Day 2 of his move, genuinely cannot move my body anymore. Going to be in my desk chair forever. Please send help
+Finally, I'd go through and clean up the components. There are places where I think I could streamline components and functions to make them more modular and better for scaling up.

@@ -23,6 +23,7 @@ export default function Main() {
 
   // feels like there is probably a way to standardize this function to be reusable
   // not going to worry about it now but copying it five times is not, generally, The Move
+
   const handleName = (e) => {
     setName(e.target.value);
     setNameError('');
@@ -99,11 +100,14 @@ export default function Main() {
         <h1 className='title'>Phantom Finders</h1>
       </Row>
       <Row className='px-4 my-3 copy'>
-        <p>Are unexplained bumps in the night giving you goosebumps? Do you sense an eerie presence lingering in your home? Fear not, 
-          for Phantom Finders is here to save the day! With our unwavering passion for the paranormal, we are the go-to professionals 
-          to uncover the truth behind mysterious happenings.</p>
-        <p>Don't let the unknown consume you. Contact Phantom Finders today to schedule a consultation. Together, we'll banish those 
-          mischievous apparitions and make your home a sanctuary once more!</p>
+        <p>Have you ever experienced unexplained phenomena that sent shivers down your spine? At Phantom Finders, 
+			we are fascinated by the mysteries of the paranormal. Share your own encounters or stories of supernatural 
+			encounters in your home.</p>
+		<p>Our team of dedicated investigators will listen to your experiences and provide insights into the unexplained. 
+			If you're open to it, we may even contact you to discuss the possibility of further investigation to shed light 
+			on the mysteries surrounding your property.</p>
+		<p>Don't let unanswered questions linger. Join the Phantom Finders community and unravel the secrets of the unknown. 
+			Submit your information or stories today and embark on a journey into the realm of the paranormal.</p>
       </Row>
       <Row className='px-4 my-3'>
       <Form onSubmit={handleSubmit}>

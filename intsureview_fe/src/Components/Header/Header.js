@@ -14,6 +14,7 @@ export function Header() {
                 <Navbar expand="sm">
                     <Navbar.Brand className="custom-brand">
                         <FontAwesomeIcon icon={faGhost} className="ghost-icon" />
+                        <span className="company-name">Phantom Finders</span>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />
                     <Navbar.Collapse id="basic-navbar-nav">

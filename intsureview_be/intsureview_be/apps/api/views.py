@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, InfoSerializer
 from .models import Info
 
-# probably can get rid of User and Group, but don't figure it can be an icebox item 
+# probably can get rid of User and Group, but figure it can be an icebox item 
 
 class UserViewSet(viewsets.ModelViewSet):
     """

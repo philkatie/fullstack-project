@@ -9,6 +9,15 @@
     text-shadow: 2px 2px 4px #00ff00;
     display: flex;
     align-items: center;
+  }
+  
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle; 
+    text-shadow: 0 4px 4px rgba(0, 255, 0, 0.95), 0 0 12px rgba(255, 0, 255, 1);
 }
 
 .ghost-icon {

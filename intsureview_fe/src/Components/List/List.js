@@ -6,6 +6,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from './List.css';
 
+// this component is 100% selfish, it was easier to see if the form was working and
+// sending info to the back end when the content was flowing to the front end
+// but it also sets up nicely for additional future endpoints like PUT/DELETE
+// as well as an easy way to access a details page about a particular haunting.
+
 export default function List() {
 
     const [info, setInfo] = useState([]);
