@@ -22,3 +22,11 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+from django.shortcuts import render
+from .models import Info
+from .serializers import InfoSerializer
+from rest_framework import viewsets
+
+class InfoViewSet(viewsets.ModelViewSet):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
