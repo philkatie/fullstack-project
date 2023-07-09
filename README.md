@@ -36,3 +36,7 @@ For some reason I can get Axios to work on my other branch but not this one ? I 
 ## Round 2 (3?)
 
 Okay we are back with the note taking. The app works, and it looks fine ish when the css is persisting. I have a lot of tweaks I want to do tomorrow after I finish helping my friend move but I am nearing the point where I would not be embarrassed to turn this in. I want to change the model a little bit to fit the theme better or at least make the naming conventions more consistent but I simply don't think I can make any more migrations. Gonna get to put a "challenges" section on the final ReadMe I guess, so I've got that going for me which is ???
+
+# Hello again
+
+Helped my friend with Day 2 of his move, genuinely cannot move my body anymore. Going to be in my desk chair forever. Please send help

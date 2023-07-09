@@ -60,7 +60,7 @@ export default function Main() {
   return (
     <Container className='my-5 py-4 my-form'>
       <Row className='px-4 my-4'>
-        <h1>Phantom Finders</h1>
+        <h1 className='title'>Phantom Finders</h1>
       </Row>
       <Row className='px-4 my-3 copy'>
         <p>Are unexplained bumps in the night giving you goosebumps? Do you sense an eerie presence lingering in your home? Fear not, 
@@ -131,10 +131,11 @@ export default function Main() {
             </Form.Select>
           </Form.Group>
 
-          <Button 
-            variant="primary" 
-            type="submit"
-            onClick={handleSubmit}>
+          <Button
+            type='submit'
+            onClick={handleSubmit}
+            className='submit-button'
+          >
             Submit
           </Button>
         </Form>

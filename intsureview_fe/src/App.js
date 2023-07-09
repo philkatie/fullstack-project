@@ -1,10 +1,10 @@
-import Header from './Components/Header';
+import { Header } from './Components/Header';
 import Main from './Components/Main';
 import Footer from './Components/Footer';
 import List from './Components/List';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import styles from './App.css';
 
 function App() {
   return (

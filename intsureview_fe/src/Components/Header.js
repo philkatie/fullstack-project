@@ -7,21 +7,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGhost } from '@fortawesome/free-solid-svg-icons';
 import styles from './header.css';
 
-export default function Header() {
+export function Header() {
     return (
-        <Navbar expand="sm" className="custom-navbar">
-          <Container>
-            <Navbar.Brand className="custom-brand">
-              <FontAwesomeIcon icon={faGhost} className="ghost-icon" />
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <NavLink className="nav-link custom-nav-link" to="/">Home</NavLink>
-                <NavLink className="nav-link custom-nav-link" to="/form">Share Your Experience</NavLink>
-              </Nav>
-            </Navbar.Collapse>
+      <header className="custom-header">
+        <Container>
+          <Navbar expand="sm">
+              <Navbar.Brand className="custom-brand">
+                <FontAwesomeIcon icon={faGhost} className="ghost-icon" />
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                  <NavLink className="nav-link custom-nav-link" to="/">Home</NavLink>
+                  <NavLink className="nav-link custom-nav-link" to="/form">Share Your Experience</NavLink>
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
           </Container>
-        </Navbar>
+        </header>
       );
     }
