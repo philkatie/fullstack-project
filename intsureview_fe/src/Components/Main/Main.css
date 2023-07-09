@@ -29,7 +29,6 @@
     max-width: 600px;
 }
 
-
 .title {
     font-size: 60px;
     font-weight: bold;
@@ -76,6 +75,6 @@
         font-size: 50px;
     }
     .copy {
-        width:100%
+        width: 100%;
     }
 }

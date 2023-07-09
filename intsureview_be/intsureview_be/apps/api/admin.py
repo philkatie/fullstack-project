@@ -3,4 +3,4 @@ from .models import Info
 
 @admin.register(Info)
 class InfoAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    list_display = ("name", "description")
