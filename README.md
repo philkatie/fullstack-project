@@ -20,3 +20,7 @@ Installed Bootstrap and got a super basic frontend with header, footer, form goi
 ## Basic Backend Stuff
 
 It's been a minute since I've done a Django project so I spent a little time in the afternoon refreshing my memory, then started getting some of the basic info for the model and REST framework set up. Then I started thinking of a dozen different things I could do with the theming to make it sillier and more consistent so I had to remind myself that it has to actually work first and then I can make it as goofy as I want.
+
+## Update
+
+Fought with corsheaders for an unreasonable amount of time, figured out it was one of my chrome extensions making it angry. Started fighting with Axios, decided to put it off for a bit. Helped a friend move, I am So Tired And My Body Hurts. Gonna make the form actually work now and then I'll fight with Axios some more.

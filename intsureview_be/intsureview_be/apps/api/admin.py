@@ -3,4 +3,4 @@ from .models import Form
 
 @admin.register(Form)
 class FormAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'phoneNumber', 'address', 'experiencedActivity', 'activityDescription')
+    list_display = ('id', 'name')

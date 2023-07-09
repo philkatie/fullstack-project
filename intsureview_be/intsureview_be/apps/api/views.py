@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Form
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.views import APIView
 from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, FormSerializer
 
 
@@ -38,3 +39,15 @@ class FormViewSet(viewsets.ModelViewSet):
 def index(response, id):
     fr = Form.objects.get(id=id)
     return HttpResponse("<h1>%s</h1>" %fr.name)
+
+
+class FormAPIView(APIView):
+    http_method_names = ['post']
+
+    def post(self, request):
+        # Create a form entry
+        serializer = FormSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

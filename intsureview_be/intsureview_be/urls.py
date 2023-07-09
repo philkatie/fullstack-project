@@ -10,7 +10,7 @@ urlpatterns = [
 ]
 
 router = routers.DefaultRouter()
-router.register("", views.FormViewSet, basename="formview")
+# router.register("", views.FormViewSet, basename="formview")
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
 router.register(r"forms", views.FormViewSet)
@@ -22,5 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-    path("<int:id>", views.index, name="index"),
+    path("forms/", include("intsureview_be.apps.api.urls", namespace="forms")),
 ]
