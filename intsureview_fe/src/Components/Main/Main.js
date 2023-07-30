@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
-import styles from './Main.css';
+import './Main.css';
 
 // probably in a more robust app I would make the form its own component and make "main" a more flexible 
 // component that could easily contain other content. But for this project I'm gonna leave it as is.

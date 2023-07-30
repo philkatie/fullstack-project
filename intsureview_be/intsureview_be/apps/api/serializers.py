@@ -13,7 +13,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ["url", "name"]
 
-class InfoSerializer(serializers.HyperlinkedModelSerializer):
+class InfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Info
         fields = "__all__"
