@@ -1,8 +1,12 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer
+from rest_framework import status
+from rest_framework.response import Response
+from intsureview_be.apps.api.serializers import UserSerializer, GroupSerializer, InfoSerializer
+from .models import Info
 
+# probably can get rid of User and Group, but figure it can be an icebox item 
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -22,3 +26,16 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class InfoViewSet(viewsets.ModelViewSet):
+    queryset = Info.objects.all()
+    serializer_class = InfoSerializer
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

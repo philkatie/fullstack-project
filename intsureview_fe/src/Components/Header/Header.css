@@ -1,0 +1,57 @@
+.custom-header {
+    background-color: #222222;
+}
+
+.custom-brand {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #00ff00;
+    display: flex;
+    align-items: center;
+  }
+  
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle; 
+    text-shadow: 0 4px 4px rgba(0, 255, 0, 0.95), 0 0 12px rgba(255, 0, 255, 1);
+}
+
+.ghost-icon {
+    color: #ffffff;
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.custom-nav-link {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px #00ff00;
+}
+
+.custom-nav-link:hover {
+    color: #ff00ff !important;
+}
+
+.custom-nav-link.active {
+    color: #00ff00 !important;
+}
+
+.custom-toggler {
+    border-color: #00ff00;
+    border-width: 2px;
+    background-color: white;
+}
+
+.custom-toggler:hover {
+    border-color: #ff00ff;
+    background-color: #ff00ff;
+}
+
+.custom-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.5);
+    border-color: #00ff00;
+    background-color: #00ff00;
+}
