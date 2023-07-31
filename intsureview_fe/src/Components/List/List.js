@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { NavLink } from 'react-router-dom';
 import styles from './List.css';
 
 // this component is 100% selfish, it was easier to see if the form was working and
@@ -40,6 +41,7 @@ export default function List() {
                 <Card.Text>{i.email}</Card.Text>
                 <Card.Text>{i.streetAddress}</Card.Text>
                 <Card.Text>{i.description}</Card.Text>
+                <NavLink className="btn btn-primary" to={`/${i.id}`}>Details</NavLink>
               </Card.Body>
             </Card>
           </Col>
